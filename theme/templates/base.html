@@ -20,9 +20,18 @@
     <style>
       .navbar {
         font-weight: bold;
+        background-color: white;
+        padding-bottom: 1em;
       }
       .navbar-brand {
-        font-size: 150%;
+        width: 168px;
+        height: 66px;
+        background-image: url("/theme/img/brushstroke.png");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      span.nav-title {
+        display: none;
       }
       .footer {
         padding-top: 2em;
@@ -33,6 +42,14 @@
         text-align: center;
         border-right: 1px solid #EEE;
       }
+      .bpush {
+        padding-top: 100px;
+      }
+      .navbar-nav li a {
+        font-family: "Lato", sans-serif;
+        color: #333;
+        text-transform: uppercase;
+      }
     </style>
 
     {% block head_additions %}
@@ -40,37 +57,32 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-inverse navbar-static-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">{{ SITENAME }}</a>
-        </div>
+        <a class="navbar-brand" href="/"><img src="/theme/img/logo-white.svg" /> <span class="nav-title">{{ SITENAME }}</span></a>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Home</a></li> <!-- class="active" -->
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="https://www.redbubble.com/people/mariapaizart
+">Shop</a></li>
             <li><a href="/about">About / Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <div class="container{% block is_fluid %}{% endblock is_fluid%}">
-        <div class="header">
+    <div class="bpush container{% block is_fluid %}{% endblock is_fluid%}">
+        <!-- <div class="header">
 
 
-        </div>
+        </div> -->
 
         {% block content %}
         {% endblock %}
         <footer class="footer">
-          <p>&copy; Maria Paiz 2014, All Rights Reserved</p>
+          <p>&copy; Maria Paiz 2014-2017, All Rights Reserved</p>
         </footer>
     </div>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Playfair+Display" rel="stylesheet">
   </body>
 </html>

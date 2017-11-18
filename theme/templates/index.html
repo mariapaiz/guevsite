@@ -23,9 +23,69 @@
     color: #EEE;
     background-color: rgba(0,0,0, 0.8);
   }
+  .hello-im{ /* heloim!11! */
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    text-align: left;
+    color: #4a4a4a;
+  }
+  .flexdiv {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex-flow: column;
+  }
+  .hello-ilustrate {
+    padding: 30px;
+  }
 </style>
 {% endblock head_additions %}
+
+
 {% block content %}
+
+  <div class="container">
+    <div class="row">
+      <div id="featuredSlider" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#featuredSlider" data-slide-to="0" class="active"></li>
+          <li data-target="#featuredSlider" data-slide-to="1"></li>
+          <li data-target="#featuredSlider" data-slide-to="2"></li>
+          <li data-target="#featuredSlider" data-slide-to="3"></li>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="/theme/img/carousel/carousel1.jpg" alt="Meowdern" >
+          </div>
+          <div class="item">
+            <img src="/theme/img/carousel/carousel2.jpg" alt="Emi">
+          </div>
+          <div class="item">
+            <img src="/theme/img/carousel/carousel3.jpg" alt="Volar">
+          </div>
+          <div class="item">
+            <img src="/theme/img/carousel/carousel4.jpg" alt="Dulces">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row hello-ilustrate">
+      <div class="col-md-2 flexdiv"><img width=100 src="/theme/img/mari_s.jpg"/></div>
+      <div class="col-md-10 flexdiv">
+        <div class="hello-im">
+          Hi! I’m a Guatemalan illustrator especializing in traditional mixed media. I love working on children’s book and educational projects.
+        </div>
+      </div>
+
+    </div>
+
+  </div> <!-- end slider content -->
+
+
+
   <div id="grid_container">
       {% for p in pages %}
         <div class="item">
@@ -44,6 +104,8 @@
 
   <script src="/theme/js/imagesloaded.pkgd.min.js"></script>
   <script src="/theme/js/isotope.pkgd.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/theme/js/bootstrap.min.js"></script>
 
   <script>
   var container = document.querySelector('#grid_container');
@@ -61,5 +123,6 @@
     // console.log( 'image is ' + result + ' for ' + image.img.src );
     iso.layout();
   });
+  $('.carousel').carousel();
   </script>
 {% endblock %}
