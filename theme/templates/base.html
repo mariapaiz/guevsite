@@ -43,12 +43,26 @@
         border-right: 1px solid #EEE;
       }
       .bpush {
-        padding-top: 100px;
+        padding-top: 125px;
       }
       .navbar-nav li a {
         font-family: "Lato", sans-serif;
         color: #333;
         text-transform: uppercase;
+      }
+      h1, h2, h3, h4 {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        text-align: left;
+      }
+      h1 {
+        font-size: 36px;
+      }
+      .flexdiv {
+        display:flex;
+        justify-content:center;
+        align-items: center;
+        flex-flow: column;
       }
     </style>
 
@@ -58,7 +72,7 @@
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
+      <div class="flexdiv">
         <a class="navbar-brand" href="/"><img src="/theme/img/logo-white.svg" /> <span class="nav-title">{{ SITENAME }}</span></a>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -79,8 +93,15 @@
 
         {% block content %}
         {% endblock %}
-        <footer class="footer">
+        <footer class="footer flexdiv">
           <p>&copy; Maria Paiz 2014-2017, All Rights Reserved</p>
+          <ul class="nav navbar-nav">
+            <li><a href="https://www.instagram.com/mariapaizart/"><img width=22 src="/theme/img/footer/instagram.svg" alt="@mariapaizart"/></a></li>
+            <li><a href="https://www.facebook.com/MariaPaizArt/"><img width=22 src="/theme/img/footer/facebook.svg" alt="Facebook/MariaPaizArt/"/></a></li>
+            <li><a href="https://redbubble.com/people/mariapaizart"><img width=22 src="/theme/img/footer/redbubble.png" alt="RedBubble"/></a></li>
+            <li><a href="https://twitter.com/mariapaizart"><img width=22 src="/theme/img/footer/twitter.svg" alt="@mariapaizart"/></a></li>
+          </ul>
+
         </footer>
     </div>
     <link href="https://fonts.googleapis.com/css?family=Lato|Playfair+Display" rel="stylesheet">
