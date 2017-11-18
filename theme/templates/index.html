@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block is_fluid %}
+-fluid
+{% endblock is_fluid%}
+
+{% block head_additions %}
+<style>
+  .item {
+    min-height: 200px;
+    position: relative;
+    padding-bottom: 15px;
+  }
+  .item img{
+    width: 100%;
+  }
+  .caption {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    padding: 1em;
+    font-weight: bold;
+    background-color: #333;
+    color: #EEE;
+    background-color: rgba(0,0,0, 0.8);
+  }
+</style>
+{% endblock head_additions %}
+{% block content %}
+  <div id="grid_container">
+      {% for p in pages %}
+        <div class="item">
+          <a href="/{{ p.url }}">
+          <picture>
+            <!-- <source srcset="/images/{{ p.slug }}-hires.jpg 2x" /> -->
+            <img src="/images/{{ p.slug }}-lowres.jpg" alt="{{ p.title }}" />
+          </picture>
+          <span class="caption">
+            {{ p.title }}
+          </span>
+          </a>
+        </div>
+      {% endfor %}
+  </div>
+
+  <script src="/theme/js/imagesloaded.pkgd.min.js"></script>
+  <script src="/theme/js/isotope.pkgd.min.js"></script>
+
+  <script>
+  var container = document.querySelector('#grid_container');
+
+  var iso = new Isotope( container, {
+    itemSelector: '.item',
+    masonry: {
+      gutter: 15
+    }
+  });
+  var imgLoad = imagesLoaded( container );
+
+  imgLoad.on( 'progress', function( instance, image ) {
+    var result = image.isLoaded ? 'loaded' : 'broken';
+    // console.log( 'image is ' + result + ' for ' + image.img.src );
+    iso.layout();
+  });
+  </script>
+{% endblock %}
